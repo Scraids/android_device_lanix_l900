@@ -155,7 +155,6 @@ lib/libtinyxml.so
 
 # vendor
 vendor/bin/audioflacapp                             
-vendor/firmware/libpn547_fw.so                             
 vendor/lib/drm/libdrmprplugin.so                             
 vendor/lib/drm/libdrmwvmplugin.so                             
 vendor/lib/egl/eglsubAndroid.so                           
