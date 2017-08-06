@@ -77,8 +77,10 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 USE_OPENGL_RENDERER := true
 
-# Init
+# l900 init
+TARGET_LIBINIT_MSM8916_DEFINES_FILE := $(DEVICE_PATH)/init/init_l900.cpp
 TARGET_UNIFIED_DEVICE := true
+
 
 WLAN_MODULES:
 	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
