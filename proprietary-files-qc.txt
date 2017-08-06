@@ -21,7 +21,6 @@ bin/mm-pp-daemon
 bin/mm-qcamera-daemon                             
 bin/mpdecision                             
 bin/netmgrd                             
-bin/nfc_detect                             
 bin/nl_listener                             
 bin/oeminfo_server                             
 bin/oem_sar_main                            
