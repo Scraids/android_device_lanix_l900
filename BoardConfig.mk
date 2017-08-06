@@ -26,7 +26,7 @@ TARGET_QCOM_AUDIO_VARIANT := caf
 AUDIO_FEATURE_MDM_DETECT := true
 
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive 
 TARGET_KERNEL_SOURCE := kernel/lanix/msm8916
 TARGET_KERNEL_CONFIG := cyanogenmod_l900_defconfig
@@ -79,7 +79,6 @@ USE_OPENGL_RENDERER := true
 
 # Init
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_msm
 
 WLAN_MODULES:
 	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko

@@ -16,23 +16,7 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
-# The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
-
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
-$(call inherit-product-if-exists, vendor/lanix/l900/l900-vendor.mk)
-
-DEVICE_PACKAGE_OVERLAYS += device/lanix/l900/overlay
-
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/lanix/l900/prebuilt/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
 
 # etc
 PRODUCT_COPY_FILES += \
@@ -49,6 +33,60 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/nfc-nci.conf:system/etc/nfc-nci.conf \
     $(LOCAL_PATH)/prebuilts/sec_config:system/etc/sec_config \
     $(LOCAL_PATH)/prebuilts/whitelist_appops.xml:system/etc/whitelist_appops.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
+# Offmode charge
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/charger:root/charger \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/batt_level_scale.png:root/res/images/720x1280/batt_level_scale.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/batt_level_top.png:root/res/images/720x1280/batt_level_top.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/bg.png:root/res/images/720x1280/bg.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/empty_charge.png:root/res/images/720x1280/empty_charge.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/err_charge.png:root/res/images/720x1280/err_charge.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/full_charge.png:root/res/images/720x1280/full_charge.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_0.png:root/res/images/720x1280/number_0.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_1.png:root/res/images/720x1280/number_1.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_2.png:root/res/images/720x1280/number_2.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_3.png:root/res/images/720x1280/number_3.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_4.png:root/res/images/720x1280/number_4.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_5.png:root/res/images/720x1280/number_5.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_6.png:root/res/images/720x1280/number_6.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_7.png:root/res/images/720x1280/number_7.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_8.png:root/res/images/720x1280/number_8.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_9.png:root/res/images/720x1280/number_9.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/percent_10.png:root/res/images/720x1280/percent_10.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/percent_5.png:root/res/images/720x1280/percent_5.png \
+    $(LOCAL_PATH)/rootdir/res/images/720x1280/percent_sign.png:root/res/images/720x1280/percent_sign.png \
+    $(LOCAL_PATH)/rootdir/res/images/mmi/fail.png:root/res/images/mmi/fail.png \
+    $(LOCAL_PATH)/rootdir/res/images/mmi/pass.png:root/res/images/mmi/pass.png
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
 
 # Feature definition files for msm8916
 PRODUCT_COPY_FILES += \
@@ -140,6 +178,10 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcompostprocbundle
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.msm8916
+
 # Keylayout
 PRODUCT_PACKAGES += \
     gpio-keys.kl \
@@ -171,7 +213,7 @@ PRODUCT_PACKAGES += \
 # Prebuilt binary
 PRODUCT_PACKAGES += \
     chargelog.sh \
-    huawei_version \
+    lanix_version \
     hw_scsi_switch \
     libqmi_oem_main \
     rmt_oeminfo \
@@ -281,18 +323,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # model and config device
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.model=G620S-L01
-    ro.product.name=G620S-L01
+    ro.product.model=l900
+    ro.product.name=l900
 
 # set acdb path
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.audio.calfile0=/etc/Bluetooth_cal.acdb \
-    persist.audio.calfile1=/etc/General_cal.acdb \
-    persist.audio.calfile2=/etc/Global_cal.acdb \
-    persist.audio.calfile3=/etc/Handset_cal.acdb \
-    persist.audio.calfile4=/etc/Hdmi_cal.acdb \
-    persist.audio.calfile5=/etc/Headset_cal.acdb \
-    persist.audio.calfile6=/etc/Speaker_cal.acdb
+    persist.audio.calfile0=/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
+    persist.audio.calfile1=/etc/acdbdata/MTP/MTP_General_cal.acdb \
+    persist.audio.calfile2=/etc/acdbdata/MTP/MTP_Global_cal.acdb \
+    persist.audio.calfile3=/etc/acdbdata/MTP/MTP_Handset_cal.acdb \
+    persist.audio.calfile4=/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb \
+    persist.audio.calfile5=/etc/acdbdata/MTP/MTP_Headset_cal.acdb \
+    persist.audio.calfile6=/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 
 # Recovery
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -300,15 +342,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, build/target/product/full.mk)
 
-$(call inherit-product-if-exists, vendor/huawei/g620s/g620s-vendor.mk)
+$(call inherit-product-if-exists, vendor/lanix/l900/l900-vendor.mk)
 
 # call dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
-$(call inherit-product, build/target/product/full.mk)
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_l900
-PRODUCT_DEVICE := l900
