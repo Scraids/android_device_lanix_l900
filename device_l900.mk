@@ -40,31 +40,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
     $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
-# Offmode charge
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/charger:root/charger \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/batt_level_scale.png:root/res/images/720x1280/batt_level_scale.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/batt_level_top.png:root/res/images/720x1280/batt_level_top.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/bg.png:root/res/images/720x1280/bg.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/empty_charge.png:root/res/images/720x1280/empty_charge.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/err_charge.png:root/res/images/720x1280/err_charge.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/full_charge.png:root/res/images/720x1280/full_charge.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_0.png:root/res/images/720x1280/number_0.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_1.png:root/res/images/720x1280/number_1.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_2.png:root/res/images/720x1280/number_2.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_3.png:root/res/images/720x1280/number_3.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_4.png:root/res/images/720x1280/number_4.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_5.png:root/res/images/720x1280/number_5.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_6.png:root/res/images/720x1280/number_6.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_7.png:root/res/images/720x1280/number_7.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_8.png:root/res/images/720x1280/number_8.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/number_9.png:root/res/images/720x1280/number_9.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/percent_10.png:root/res/images/720x1280/percent_10.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/percent_5.png:root/res/images/720x1280/percent_5.png \
-    $(LOCAL_PATH)/rootdir/res/images/720x1280/percent_sign.png:root/res/images/720x1280/percent_sign.png \
-    $(LOCAL_PATH)/rootdir/res/images/mmi/fail.png:root/res/images/mmi/fail.png \
-    $(LOCAL_PATH)/rootdir/res/images/mmi/pass.png:root/res/images/mmi/pass.png
-
 # Permissions
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \
@@ -224,28 +199,7 @@ PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_PACKAGES += \
-    recoverylog.sh \
     minivold
-
-# ETC
-PRODUCT_PACKAGES += \
-    hcidump.sh \
-    hsic.control.bt.sh \
-    init.ath3k.bt.sh \
-    init.crda.sh \
-    init.qcom.audio.sh \
-    init.qcom.bt.sh \
-    init.qcom.coex.sh \
-    init.qcom.efs.sync.sh \
-    init.qcom.fm.sh \
-    init.qcom.modem_links.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.rootagent.sh \
-    init.qcom.sdio.sh \
-    init.qcom.uicc.sh \
-    init.qcom.wifi.sh \
-    qca6234-service.sh \
-    renice-loggers.sh
 
 # Ramdisk
 PRODUCT_PACKAGES += \
