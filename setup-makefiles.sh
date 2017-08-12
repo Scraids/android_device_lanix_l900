@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DEVICE=hm2014811
-VENDOR=xiaomi
+DEVICE=l900
+VENDOR=lanix
 
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
@@ -131,7 +131,7 @@ EOF
 
 LOCAL_PATH := \$(call my-dir)
 
-ifeq (\$(TARGET_DEVICE),hm2014811)
+ifeq (\$(TARGET_DEVICE),l900)
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := com.qualcomm.location
